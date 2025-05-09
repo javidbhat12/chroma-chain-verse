@@ -30,10 +30,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <div className="h-10 w-10 rounded-full bg-gradient-omni flex items-center justify-center mr-3 animate-pulse-glow">
-                <span className="text-white font-bold text-lg">LZ</span>
+              <div className="h-10 w-10 rounded-full bg-gradient-nexus flex items-center justify-center mr-3 animate-pulse-glow">
+                <span className="text-white font-bold text-lg">N</span>
               </div>
-              <span className="text-xl font-bold gradient-text">OmniPortal</span>
+              <span className="text-xl font-bold gradient-text">Nexus</span>
             </Link>
           </div>
 
@@ -70,7 +70,7 @@ const Navbar = () => {
             
             <Button
               variant="default"
-              className="bg-gradient-omni hover:opacity-90 transition-opacity"
+              className="bg-gradient-nexus hover:opacity-90 transition-opacity"
             >
               Connect
             </Button>
@@ -108,7 +108,7 @@ const Navbar = () => {
             <div className="mt-4 pt-4 border-t border-border">
               <Button 
                 variant="default" 
-                className="w-full bg-gradient-omni hover:opacity-90 transition-opacity"
+                className="w-full bg-gradient-nexus hover:opacity-90 transition-opacity"
               >
                 Connect
               </Button>

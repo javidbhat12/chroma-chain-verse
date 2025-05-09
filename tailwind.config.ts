@@ -63,14 +63,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-        // Custom omnichain dApp colors
-        omni: {
-          purple: '#8B5CF6',
+        // New color palette for Nexus
+        nexus: {
           blue: '#3B82F6',
+          purple: '#8B5CF6',
+          teal: '#06B6D4',
           pink: '#EC4899',
           indigo: '#6366F1',
-          'dark-blue': '#1E293B',
-          'light-blue': '#60A5FA',
+          'dark-blue': '#172554',
+          'light-blue': '#BFDBFE',
         }
 			},
 			borderRadius: {
@@ -146,7 +147,7 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'gradient-omni': 'linear-gradient(90deg, #8B5CF6, #3B82F6, #EC4899)',
+        'gradient-nexus': 'linear-gradient(90deg, #3B82F6, #8B5CF6, #06B6D4)',
       },
 		}
 	},

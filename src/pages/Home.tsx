@@ -46,11 +46,11 @@ const Home = () => {
               <span className="gradient-text">Cross-Chain</span> Interoperability Made Simple
             </h1>
             <p className="text-lg md:text-xl mb-8 text-muted-foreground">
-              OmniPortal connects blockchains together with seamless, secure transfers and messaging powered by LayerZero V2.
+              Nexus connects blockchains together with seamless, secure transfers and messaging powered by LayerZero V2.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
-                className="bg-gradient-omni hover:opacity-90 transition-opacity text-white px-8 py-6"
+                className="bg-gradient-nexus hover:opacity-90 transition-opacity text-white px-8 py-6"
                 onClick={() => navigate('/bridge')}
                 size="lg"
               >
@@ -69,7 +69,7 @@ const Home = () => {
           </div>
           <div className="lg:w-1/2 flex justify-center lg:justify-end animate-fade-in">
             <div className="relative w-full max-w-md">
-              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-omni-purple via-omni-blue to-omni-pink opacity-75 blur-lg"></div>
+              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-nexus opacity-75 blur-lg"></div>
               <div className="relative bg-card rounded-2xl p-8 shadow-xl">
                 <div className="space-y-6">
                   <div className="flex justify-between">
@@ -110,7 +110,7 @@ const Home = () => {
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-gradient-omni">
+                  <Button className="w-full bg-gradient-nexus">
                     Bridge Tokens
                   </Button>
                 </div>
@@ -123,7 +123,7 @@ const Home = () => {
       {/* Features Section */}
       <section className="bg-secondary py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose <span className="gradient-text">OmniPortal</span>?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose <span className="gradient-text">Nexus</span>?</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -181,7 +181,7 @@ const Home = () => {
             
             <div className="mt-12 text-center">
               <Button 
-                className="bg-gradient-omni hover:opacity-90 transition-opacity text-white px-8"
+                className="bg-gradient-nexus hover:opacity-90 transition-opacity text-white px-8"
                 onClick={() => navigate('/bridge')}
                 size="lg"
               >
@@ -195,7 +195,7 @@ const Home = () => {
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-20">
-        <div className="rounded-2xl bg-gradient-to-r from-omni-purple via-omni-blue to-omni-pink p-[2px]">
+        <div className="rounded-2xl bg-gradient-nexus p-[2px]">
           <div className="bg-card rounded-2xl p-8 md:p-12">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to explore the omnichain future?</h2>
@@ -203,7 +203,7 @@ const Home = () => {
                 Start bridging assets and exploring the power of LayerZero V2 technology today.
               </p>
               <Button 
-                className="bg-gradient-omni hover:opacity-90 transition-opacity text-white px-8 py-6"
+                className="bg-gradient-nexus hover:opacity-90 transition-opacity text-white px-8 py-6"
                 onClick={() => navigate('/dashboard')}
                 size="lg"
               >
