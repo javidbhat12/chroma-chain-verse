@@ -7,8 +7,9 @@ import { useLayerZero } from '@/contexts/LayerZeroContext';
 
 const Navbar = () => {
   const location = useLocation();
-  const { chains, connectWallet } = useLayerZero();
+  const { chains, connectWallet, isConnecting } = useLayerZero();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showChainMenu, setShowChainMenu] = useState(false);
 
   const navItems = [
     { path: '/', label: 'Home', icon: <Home size={18} /> },
@@ -22,6 +23,19 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const toggleChainMenu = () => {
+    setShowChainMenu(!showChainMenu);
+  };
+
+  // Chain color mappings
+  const chainColors = {
+    solana: 'bg-gradient-to-r from-purple-500 to-fuchsia-500', 
+    ethereum: 'bg-gradient-to-r from-blue-500 to-indigo-600',
+    avalanche: 'bg-gradient-to-r from-red-500 to-rose-600',
+    polygon: 'bg-gradient-to-r from-indigo-500 to-purple-600',
+    bnb: 'bg-gradient-to-r from-yellow-400 to-amber-500',
   };
 
   return (
@@ -59,20 +73,55 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <Button
               variant="outline"
-              className="mr-2 border-dashed"
-              onClick={() => {}}
+              className="mr-2 border-dashed relative"
+              onClick={toggleChainMenu}
             >
               <span className="mr-2 text-sm font-medium">
                 {connectedChains} of {chains.length}
               </span>
-              <ChevronDown size={16} />
+              <ChevronDown size={16} className={`transition-transform ${showChainMenu ? 'rotate-180' : ''}`} />
             </Button>
             
+            {/* Chain Selection Dropdown */}
+            {showChainMenu && (
+              <div className="absolute top-16 right-4 w-72 bg-card rounded-xl shadow-lg border border-border p-4 animate-fade-in z-50">
+                <h3 className="font-medium text-sm text-muted-foreground mb-3">Select Chains</h3>
+                <div className="space-y-3">
+                  {chains.map((chain) => (
+                    <div key={chain.id} className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className={`h-8 w-8 rounded-full flex items-center justify-center mr-3 ${chainColors[chain.type]}`}>
+                          <span className="text-white text-sm">{chain.icon}</span>
+                        </div>
+                        <div>
+                          <p className="font-medium">{chain.name}</p>
+                          {chain.connected && (
+                            <p className="text-xs text-muted-foreground">{chain.balance} tokens</p>
+                          )}
+                        </div>
+                      </div>
+                      <Button
+                        size="sm"
+                        variant={chain.connected ? "secondary" : "default"}
+                        onClick={() => chain.connected ? null : connectWallet(chain.type)}
+                        disabled={isConnecting}
+                        className={chain.connected ? "bg-green-500/20 text-green-600 hover:bg-green-500/30" : `${chainColors[chain.type]} text-white hover:opacity-90`}
+                      >
+                        {chain.connected ? "Connected" : "Connect"}
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <Button
               variant="default"
-              className="bg-gradient-nexus hover:opacity-90 transition-opacity"
+              className="bg-gradient-to-r from-nexus-blue via-nexus-purple to-nexus-teal hover:opacity-90 transition-opacity"
+              onClick={() => connectWallet(chains.find(chain => !chain.connected)?.type || 'ethereum')}
+              disabled={isConnecting}
             >
-              Connect
+              {isConnecting ? "Connecting..." : connectedChains > 0 ? "Manage Wallets" : "Connect"}
             </Button>
           </div>
 
@@ -106,12 +155,25 @@ const Navbar = () => {
               ))}
             </div>
             <div className="mt-4 pt-4 border-t border-border">
-              <Button 
-                variant="default" 
-                className="w-full bg-gradient-nexus hover:opacity-90 transition-opacity"
-              >
-                Connect
-              </Button>
+              {chains.map((chain) => (
+                <div key={chain.id} className="flex items-center justify-between py-2">
+                  <div className="flex items-center">
+                    <div className={`h-8 w-8 rounded-full flex items-center justify-center mr-3 ${chainColors[chain.type]}`}>
+                      <span className="text-white text-sm">{chain.icon}</span>
+                    </div>
+                    <span>{chain.name}</span>
+                  </div>
+                  <Button 
+                    size="sm"
+                    variant={chain.connected ? "secondary" : "default"}
+                    onClick={() => chain.connected ? null : connectWallet(chain.type)}
+                    disabled={isConnecting}
+                    className={chain.connected ? "bg-green-500/20 text-green-600 hover:bg-green-500/30" : `${chainColors[chain.type]} text-white hover:opacity-90`}
+                  >
+                    {chain.connected ? "Connected" : "Connect"}
+                  </Button>
+                </div>
+              ))}
             </div>
           </div>
         )}
