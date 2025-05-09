@@ -46,7 +46,7 @@ const Home = () => {
               <span className="gradient-text">Cross-Chain</span> Interoperability Made Simple
             </h1>
             <p className="text-lg md:text-xl mb-8 text-muted-foreground">
-              Nexus connects blockchains together with seamless, secure transfers and messaging powered by LayerZero V2.
+              Warpgate connects blockchains together with seamless, secure transfers and messaging powered by LayerZero V2.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
@@ -123,7 +123,7 @@ const Home = () => {
       {/* Features Section */}
       <section className="bg-secondary py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose <span className="gradient-text">Nexus</span>?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose <span className="gradient-text">Warpgate</span>?</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
